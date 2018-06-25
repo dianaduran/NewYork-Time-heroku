@@ -5,6 +5,7 @@ const router = require("./router/index");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
