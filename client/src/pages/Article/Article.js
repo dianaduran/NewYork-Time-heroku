@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
@@ -146,13 +145,10 @@ class Articles extends Component {
               <List>
                 {this.state.saved.map(article => (
                   <ListItem key={article._id}>
-                  <a className="class-link" href={article.url} target="_blank">-Link-</a>
+                   <a className="class-link" href={article.url} target="_blank">-Link-</a>
                        <strong>
                       {article.title}
                       </strong>
-                    <Link to={"/article/" + article._id} >
-                    <span></span>
-                    </Link>
                     <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
                   </ListItem>
                 ))}
