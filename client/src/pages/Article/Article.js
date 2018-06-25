@@ -6,6 +6,7 @@ import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import "./article.css";
+import Moment from 'react-moment';
 
 class Articles extends Component {
   state = {
@@ -66,7 +67,7 @@ class Articles extends Component {
       API.getRecipes(this.state.topic, this.state.start, this.state.end)
       //slice is because is supouse get just 5 elements
       .then(res =>this.setState({ articles: res.data.response.docs.slice(0,5) }),
-       console.log("articles saved in articles array"))
+       console.log("articles saved in articles array: "))
       .catch(err => console.log(err));
     }
   };
@@ -124,9 +125,10 @@ class Articles extends Component {
               <List>
                 {this.state.articles.map(article => (
                   <ListItem key={article._id}>
-                    <p className="text-center">{article.snippet}</p>                   
+                    <p className="text-center">{article.snippet}</p> 
+                    <p className="text-right"><Moment format="YYYY/MM/DD">{article.pub_date}</Moment></p>                  
                     <a href={article.web_url} target="_blank"> Link </a> 
-                    <button className="btn btn-secondary" onClick={() => this.saveArticle(article._id , article.web_url)}>
+                    <button className="btn btn-secondary text-right" onClick={() => this.saveArticle(article._id , article.web_url)}>
                       Save
                     </button>
                   </ListItem>
