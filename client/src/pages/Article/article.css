@@ -8,3 +8,11 @@ h1{
     padding: 5px 51px 51px;
     margin-bottom: 30px
 }
+
+.text-center{
+    font-weight: bold;
+}
+
+.class-link{
+    margin-right: 10px;
+}

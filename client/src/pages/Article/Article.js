@@ -124,7 +124,8 @@ class Articles extends Component {
               <List>
                 {this.state.articles.map(article => (
                   <ListItem key={article._id}>
-                    <p>{article.snippet}</p>                   
+                    <p className="text-center">{article.snippet}</p>                   
+                    <a href={article.web_url} target="_blank"> Link </a> 
                     <button className="btn btn-secondary" onClick={() => this.saveArticle(article._id , article.web_url)}>
                       Save
                     </button>
@@ -143,10 +144,12 @@ class Articles extends Component {
               <List>
                 {this.state.saved.map(article => (
                   <ListItem key={article._id}>
-                    <Link to={"/article/" + article._id}>
-                      <strong>
-                        {article.title}
+                  <a className="class-link" href={article.url} target="_blank">-Link-</a>
+                       <strong>
+                      {article.title}
                       </strong>
+                    <Link to={"/article/" + article._id} >
+                    <span></span>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
                   </ListItem>
